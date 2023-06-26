@@ -123,6 +123,9 @@ class _SimpleCalculatriceState extends State<SimpleCalculatrice> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final gridHeight = screenHeight - (0.4 * MediaQuery.of(context).devicePixelRatio);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -163,33 +166,36 @@ class _SimpleCalculatriceState extends State<SimpleCalculatrice> {
           ),
           const Divider(),
           Expanded(
-            flex: 6,
-            child: GridView.count(
-              crossAxisCount: 4,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              children: [
-                calculatriceBtn("C", Colors.redAccent, Colors.white),
-                calculatriceBtn("⌫", Colors.blueGrey, Colors.white),
-                calculatriceBtn("%", Colors.blueGrey, Colors.white),
-                calculatriceBtn("÷", Colors.blueGrey, Colors.white),
-                calculatriceBtn("7", Colors.grey[300]!, Colors.black),
-                calculatriceBtn("8", Colors.grey[300]!, Colors.black),
-                calculatriceBtn("9", Colors.grey[300]!, Colors.black),
-                calculatriceBtn("×", Colors.blueGrey, Colors.white),
-                calculatriceBtn("4", Colors.grey[300]!, Colors.black),
-                calculatriceBtn("5", Colors.grey[300]!, Colors.black),
-                calculatriceBtn("6", Colors.grey[300]!, Colors.black),
-                calculatriceBtn("-", Colors.blueGrey, Colors.white),
-                calculatriceBtn("1", Colors.grey[300]!, Colors.black),
-                calculatriceBtn("2", Colors.grey[300]!, Colors.black),
-                calculatriceBtn("3", Colors.grey[300]!, Colors.black),
-                calculatriceBtn("+", Colors.blueGrey, Colors.white),
-                calculatriceBtn("00", Colors.grey[300]!, Colors.black),
-                calculatriceBtn("0", Colors.grey[300]!, Colors.black),
-                calculatriceBtn(".", Colors.grey[300]!, Colors.black),
-                calculatriceBtn("=", Colors.redAccent, Colors.white),
-              ],
+            flex: 8,
+            child: SizedBox(
+              height: gridHeight,
+              child: GridView.count(
+                crossAxisCount: 4,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  calculatriceBtn("C", Colors.redAccent, Colors.white),
+                  calculatriceBtn("⌫", Colors.blueGrey, Colors.white),
+                  calculatriceBtn("%", Colors.blueGrey, Colors.white),
+                  calculatriceBtn("÷", Colors.blueGrey, Colors.white),
+                  calculatriceBtn("7", Colors.grey[300]!, Colors.black),
+                  calculatriceBtn("8", Colors.grey[300]!, Colors.black),
+                  calculatriceBtn("9", Colors.grey[300]!, Colors.black),
+                  calculatriceBtn("×", Colors.blueGrey, Colors.white),
+                  calculatriceBtn("4", Colors.grey[300]!, Colors.black),
+                  calculatriceBtn("5", Colors.grey[300]!, Colors.black),
+                  calculatriceBtn("6", Colors.grey[300]!, Colors.black),
+                  calculatriceBtn("-", Colors.blueGrey, Colors.white),
+                  calculatriceBtn("1", Colors.grey[300]!, Colors.black),
+                  calculatriceBtn("2", Colors.grey[300]!, Colors.black),
+                  calculatriceBtn("3", Colors.grey[300]!, Colors.black),
+                  calculatriceBtn("+", Colors.blueGrey, Colors.white),
+                  calculatriceBtn("00", Colors.grey[300]!, Colors.black),
+                  calculatriceBtn("0", Colors.grey[300]!, Colors.black),
+                  calculatriceBtn(".", Colors.grey[300]!, Colors.black),
+                  calculatriceBtn("=", Colors.redAccent, Colors.white),
+                ],
+              ),
             ),
           ),
         ],
